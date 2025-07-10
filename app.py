@@ -30,11 +30,11 @@ if st.button("Upload to GitHub"):
   url = "https://api.github.come/repos/valeriiew/valw/contents/data2.csv"
   headers = {"Authorisation": f"token {st.secrets['github']['token']}"}
 
-  payload = (
+  payload = {
     "message": "Add data.csv",
     "content": content,
     "branch": "main"
-  )
+}
 
   r = requests.put(url, headers = headers, json = payload)
   if r.statues_code in [200, 201]:
