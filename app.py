@@ -5,4 +5,14 @@ import requests
 
 st.title("Read CSV from GitHub")
 
-url <-
+url <- "https://raw.githubusercontent.com/limfw/temp/data.csv"
+
+def load_data():
+  return pd.read_csv(url)
+
+try:
+  df = load_data()
+  st.success("Data loaded successfully!")
+  st.datafram(df)
+except Exception as e:
+  st.error(f"Failed to load data: {e}")
